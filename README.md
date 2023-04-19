@@ -1,4 +1,4 @@
-# amazon_clone
+# Android/iOS/iPadOS/macOS/Linux/WindowsApp
 
 A new Flutter project.
 
