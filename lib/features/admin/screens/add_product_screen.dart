@@ -1,16 +1,17 @@
 import 'dart:io';
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:amazon_clone/common/widgets/custom_button.dart';
 import 'package:amazon_clone/common/widgets/custom_textfield.dart';
+import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/constants/utils.dart';
-import 'package:flutter/material.dart';
+import 'package:amazon_clone/features/admin/services/admin_services.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
-import '../../../constants/global_variables.dart';
-import '../services/admin_services.dart';
+import 'package:flutter/material.dart';
 
 class AddProductScreen extends StatefulWidget {
   static const String routeName = '/add-product';
-  const AddProductScreen({super.key});
+  const AddProductScreen({Key? key}) : super(key: key);
 
   @override
   State<AddProductScreen> createState() => _AddProductScreenState();
@@ -41,7 +42,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
     'Essentials',
     'Appliances',
     'Books',
-    'Fashion',
+    'Fashion'
   ];
 
   void sellProduct() {
@@ -50,8 +51,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
         context: context,
         name: productNameController.text,
         description: descriptionController.text,
-        quantity: double.parse(quantityController.text),
         price: double.parse(priceController.text),
+        quantity: double.parse(quantityController.text),
         category: category,
         images: images,
       );
@@ -65,6 +66,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
@@ -77,7 +79,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
           ),
           title: const Text(
             'Add Product',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(
+              color: Colors.black,
+            ),
           ),
         ),
       ),
@@ -88,20 +92,20 @@ class _AddProductScreenState extends State<AddProductScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 images.isNotEmpty
                     ? CarouselSlider(
-                        items: images.map((i) {
-                          return Builder(
-                            builder: (BuildContext context) => Image.file(
-                              i,
-                              fit: BoxFit.cover,
-                              height: 200,
-                            ),
-                          );
-                        }).toList(),
+                        items: images.map(
+                          (i) {
+                            return Builder(
+                              builder: (BuildContext context) => Image.file(
+                                i,
+                                fit: BoxFit.cover,
+                                height: 200,
+                              ),
+                            );
+                          },
+                        ).toList(),
                         options: CarouselOptions(
                           viewportFraction: 1,
                           height: 200,
@@ -132,7 +136,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                   'Select Product Images',
                                   style: TextStyle(
                                     fontSize: 15,
-                                    color: Colors.grey.shade300,
+                                    color: Colors.grey.shade400,
                                   ),
                                 ),
                               ],
@@ -140,12 +144,11 @@ class _AddProductScreenState extends State<AddProductScreen> {
                           ),
                         ),
                       ),
-                const SizedBox(
-                  height: 30,
-                ),
+                const SizedBox(height: 30),
                 CustomTextField(
-                    controller: productNameController,
-                    hintText: 'Product Name'),
+                  controller: productNameController,
+                  hintText: 'Product Name',
+                ),
                 const SizedBox(height: 10),
                 CustomTextField(
                   controller: descriptionController,
@@ -154,10 +157,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 ),
                 const SizedBox(height: 10),
                 CustomTextField(
-                    controller: priceController, hintText: 'Price (₹)'),
+                  controller: priceController,
+                  hintText: 'Price',
+                ),
                 const SizedBox(height: 10),
                 CustomTextField(
-                    controller: quantityController, hintText: 'Quantity (No. of items)'),
+                  controller: quantityController,
+                  hintText: 'Quantity',
+                ),
                 const SizedBox(height: 10),
                 SizedBox(
                   width: double.infinity,
@@ -179,7 +186,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 ),
                 const SizedBox(height: 10),
                 CustomButton(
-                  text: 'sell',
+                  text: 'Sell',
                   onTap: sellProduct,
                 ),
               ],

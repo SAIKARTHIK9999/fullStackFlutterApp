@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:convert';
 import 'package:amazon_clone/constants/error_handling.dart';
-import 'package:amazon_clone/provider/user_provider.dart';
+import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:amazon_clone/constants/utils.dart';
 import 'package:flutter/material.dart';

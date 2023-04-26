@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-String uri = 'http://172.20.10.3:3000';
 
-class GlobalVariables{
-    static const appBarGradient = LinearGradient(
+String uri = 'https://collage-proj-backend-sever.onrender.com';
+
+class GlobalVariables {
+  // COLORS
+  static const appBarGradient = LinearGradient(
     colors: [
       Color.fromARGB(255, 29, 201, 192),
       Color.fromARGB(255, 125, 221, 216),
@@ -16,7 +18,8 @@ class GlobalVariables{
   static var selectedNavBarColor = Colors.cyan[800]!;
   static const unselectedNavBarColor = Colors.black87;
 
-   static const List<String> carouselImages = [
+  // STATIC IMAGES
+  static const List<String> carouselImages = [
     'https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/WLA/TS/D37847648_Accessories_savingdays_Jan22_Cat_PC_1500.jpg',
     'https://images-eu.ssl-images-amazon.com/images/G/31/img2021/Vday/bwl/English.jpg',
     'https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/AdvantagePrime/BAU/14thJan/D37196025_IN_WL_AdvantageJustforPrime_Jan_Mob_ingress-banner_1242x450.jpg',
